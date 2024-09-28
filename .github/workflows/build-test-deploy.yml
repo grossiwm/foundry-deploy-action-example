@@ -58,3 +58,4 @@ jobs:
           private-key: ${{ secrets.PRIVATE_KEY }}
           deploy-script: script/Counter.s.sol:CounterScript
           chain-id: ${{ secrets.TESTNET_CHAIN_ID }}
+          etherscan-api-key: ${{ secrets.ETHERSCAN_API_KEY }}
