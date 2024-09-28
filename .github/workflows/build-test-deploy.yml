@@ -43,3 +43,18 @@ jobs:
         run: |
           forge test -vvv
         id: test
+        
+  deploy_testnet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Deploy contracts
+        uses: grossiwm/foundry-deploy-action@main
+        with:
+          rpc-url: ${{ secrets.TESTNET_RPC_URL }}
+          private-key: ${{ secrets.PRIVATE_KEY }}
+          deploy-script: script/Counter.s.sol:CounterScript
+          chain-id: ${{ secrets.TESTNET_CHAIN_ID }}
