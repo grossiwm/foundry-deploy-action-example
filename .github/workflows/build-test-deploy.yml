@@ -2,8 +2,6 @@ name: CI
 
 on:
   push:
-  pull_request:
-  workflow_dispatch:
 
 env:
   FOUNDRY_PROFILE: ci
@@ -45,6 +43,7 @@ jobs:
         id: test
         
   deploy_testnet:
+    needs: check
     runs-on: ubuntu-latest
     steps:
       - name: Foundry Deploy Action
